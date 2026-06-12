@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="title" content="PKL Global Intermedia">
+    <meta name="title" content="Pendaftaran PKL/MAGANG Global Intermedia">
     <meta name="description" content="Program Praktek Kerja Lapangan (PKL) di Global Intermedia Nusantara untuk mahasiswa dan siswa SMK">
     <meta name="keywords" content="PKL, Magang, Global Intermedia, Praktek Kerja Lapangan, Teknologi Informasi, Software Development">
     
     <title>@yield('title') - PKL/Magang Pt Global Intermedia Nusantara</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('uploads/images/favicon.ico.png') }}">
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}">
     
     <!-- CSS Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,7 +35,6 @@
             margin: 0;
         }
         
-        /* DESKTOP NAV HIDDEN ON MOBILE BY DEFAULT */
         @media (max-width: 992px) {
             #nav-menu-container {
                 display: none !important;
@@ -49,7 +48,6 @@
                 padding-bottom: 80px !important;
             }
             
-            /* MOBILE LOGO - DI TENGAH */
             #logo {
                 position: absolute !important;
                 left: 50% !important;
@@ -59,7 +57,6 @@
             }
         }
         
-        /* DESKTOP LOGO - POJOK KIRI */
         @media (min-width: 993px) {
             #logo {
                 position: absolute !important;
@@ -82,7 +79,6 @@
                 object-fit: contain;
             }
             
-            /* Desktop Menu Container - dipindah ke kanan */
             #nav-menu-container {
                 margin-left: auto;
                 display: flex;
@@ -101,7 +97,6 @@
             }
         }
         
-        /* ========== POPUP IKLAN STYLES - FIX SIZE ========== */
         #pklPopup {
             position: fixed;
             top: 0;
@@ -564,17 +559,16 @@
         </div>
     </div>
 
-    <!-- Header - TANPA INLINE STYLE PADA LOGO -->
     <header id="header">
         <div class="container-fluid" style="padding: 0 15px; display: flex; align-items: center; justify-content: center; height: 100%; max-width: 1200px; margin: 0 auto; position: relative;">
             <!-- Logo - POSISI DIKENDALIKAN OLEH CSS MEDIA QUERY -->
             <div id="logo">
                 @php
-                    $logoPath = 'uploads/images/logo_gi.png';
+                    $logoPath = 'images/logo_gi.png';
                     $logoExists = file_exists(public_path($logoPath));
                 @endphp
                 
-                <a href="{{ route('student.home') }}" style="display: flex; align-items: center; height: 70px; text-decoration: none;">
+                <a href="{{ route('user.home') }}" style="display: flex; align-items: center; height: 70px; text-decoration: none;">
                     @if($logoExists)
                         <img src="{{ asset($logoPath) }}" 
                              alt="Global Intermedia Nusantara"
@@ -591,17 +585,17 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu" id="navMenu">
                     <li id="mn_index">
-                        <a href="{{ route('student.home') }}">
+                        <a href="{{ route('user.home') }}">
                             <i class="fas fa-home me-1"></i>Home
                         </a>
                     </li>
                     <li id="mn_register">
-                        <a href="{{ route('student.register') }}">
+                        <a href="{{ route('user.pilih-tipe') }}">
                             <i class="fas fa-file-alt me-1"></i>Pendaftaran
                         </a>
                     </li>
                     <li id="mn_status">
-                        <a href="{{ route('student.status') }}">
+                        <a href="{{ route('user.status') }}">
                             <i class="fas fa-search me-1"></i>Cek Status
                         </a>
                     </li>
@@ -615,7 +609,7 @@
         <div class="nav-inner">
             <ul class="mobile-nav-items">
                 <li class="mobile-nav-item">
-                    <a href="{{ route('student.home') }}" 
+                    <a href="{{ route('user.home') }}" 
                        class="mobile-nav-link"
                        aria-label="Home">
                         <div class="nav-icon-container">
@@ -625,9 +619,9 @@
                     </a>
                 </li>
                 <li class="mobile-nav-item">
-                    <a href="{{ route('student.register') }}" 
-                       class="mobile-nav-link"
-                       aria-label="Pendaftaran">
+                    <a href="{{ route('user.pilih-tipe') }}" 
+                    class="mobile-nav-link"
+                    aria-label="Pendaftaran">
                         <div class="nav-icon-container">
                             <i class="fas fa-file-alt"></i>
                         </div>
@@ -635,7 +629,7 @@
                     </a>
                 </li>
                 <li class="mobile-nav-item">
-                    <a href="{{ route('student.status') }}" 
+                    <a href="{{ route('user.status') }}" 
                        class="mobile-nav-link"
                        aria-label="Cek Status">
                         <div class="nav-icon-container">
@@ -743,7 +737,7 @@
                             </a>
                         </li>
                         <li style="margin-bottom: 10px;">
-                            <a href="{{ route('student.home') }}#about" 
+                            <a href="{{ route('user.home') }}#about" 
                                style="color: #aaa; text-decoration: none; font-size: 0.9rem; transition: all 0.3s; display: flex; align-items: center;">
                                 <i class="fas fa-info-circle me-2" style="font-size: 0.8rem;"></i>
                                 Tentang PKL
