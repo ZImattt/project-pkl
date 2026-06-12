@@ -82,7 +82,7 @@ Sistem Informasi PKL adalah aplikasi web untuk mengelola kegiatan Praktik Kerja 
   "framework": "Laravel 10.x",
   "php": "^8.1",
   "database": "MySQL 5.7+ / MariaDB 10.3+",
-  "frontend": "Bootstrap 5 + Blade Template",
+  "frontend": "Font Awesome",
   "javascript": "Alpine.js + Chart.js",
   "package_manager": "Composer + NPM",
   "server": "Apache 2.4+ / Nginx 1.18+"
